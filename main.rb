@@ -1171,5 +1171,36 @@ water_consumption_data = JSON.parse(%q|
 }
 |)
 
-#puts water_consumption_data
-puts water_consumption_data["data"][0][8]
+#TRIAL 3
+
+def water_consumption_year_to_info (years, given_year)
+   years["data"].each do |year|
+      if year[8] == given_year
+         return {water_consumption_year: year[8], water_consumption_million: year[10], water_consumption_person: year[11]}
+         break
+      end
+   end
+end
+
+def run(years)
+   puts "Of what year do you want to find out about the amount of water consumption in NYC (put any year from 1979 - 2016)?"
+   user_year = gets.chomp
+   
+   begin 
+      water_consumption_info = water_consumption_year_to_info(years, user_year)
+      puts "In #{water_consumption_info[:water_consumption_year]}..."
+      puts "#{water_consumption_info[:water_consumption_million].insert(1, ",")} million gallons of water per day was consumed."
+      puts "#{water_consumption_info[:water_consumption_person]} gallons of water per person per day was consumed."
+   rescue
+      puts "Sorry, water consumption data for that year is not listed!"
+   end
+end
+
+run(water_consumption_data)
+
+
+
+
+
+
+

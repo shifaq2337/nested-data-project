@@ -1,0 +1,45 @@
+Question: Of what year do you want to find out about the amount of water consumption in NYC (put any year from 1979 - 2016)? 
+- user should be able to put any year from 1979 to 2016 and 
+receive water consumption in NYC for that year:
+-- NYC Consumption(Million gallons per day) and 
+-- Per Capita(Gallons per person per day). 
+-look for year if user_year matches with year inside data then return NYC Consumption(Million gallons per day) and Per Capita(Gallons per person per day). 
+
+EC Question (if enough time): Do you want to know what the NYC population size for the year you put in earlier? 
+-- If user says no ask "Do you want to know what the NYC population size was for any year from 1979 - 2016?"
+--- If user says no again, stop running 
+-If user puts yes ask "Please put in which year you want to find out about the NYC population size." 
+*add comma to answer
+
+TRIAL 1 
+puts water_consumption_data
+puts water_consumption_data["data"][0][8] #gives the year
+puts water_consumption_data["data"][0][10] # gives the NYC population water consumption number 
+puts water_consumption_data["data"][0][11] # gives the individu water consumption number
+
+TRIAL 2
+puts "Of what year do you want to find out about the amount of water consumption in NYC (put any year from 1979 - 2016)?"
+user_year = gets.chomp
+    water_consumption_data["data"].each do |water_consumption_info|
+        if water_consumption[8] == user_year
+            puts "In #{water_consumption_info[8]}..."
+            puts "#{water_consumption_info[10]} million gallons per day was consumed"
+            puts "#{water_consumption_info[11]} gallons per person per day was consumed."
+        end
+    end
+
+2nd Question 
+TRIAL 1
+
+puts water_consumption_data["data"0][0][9] #gives population size
+
+TRIAL 2 
+
+def population_size(years, chosen_year)
+   years["data"].each do |year|
+      if year[8] == chosen_year
+         return {size_of_pop: year[9]}
+         break
+      end
+   end
+end
