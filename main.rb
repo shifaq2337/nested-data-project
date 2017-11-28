@@ -1183,7 +1183,8 @@ def water_consumption_year_to_info (years, given_year)
 end
 
 def run(years)
-   puts "I've always been interested in finding out about the amount of water consumption in NYC... #introduction from this line to 1189
+   #introduction from this 1186 to 1190
+   puts "I've always been interested in finding out about the amount of water consumption in NYC... 
    you: Boo, that's very boring! <(@_@)>
    me: (T_T) ...Too bad, we are lucky enough to have clean water, so let's find out about how much water we consume! Then, we can think about how we can avoid resource depletion!
    "
