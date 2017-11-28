@@ -1174,33 +1174,32 @@ water_consumption_data = JSON.parse(%q|
 #TRIAL 3
 
 def water_consumption_year_to_info (years, given_year)
-   years["data"].each do |year|
-      if year[8] == given_year
-         return {water_consumption_year: year[8], water_consumption_million: year[10], water_consumption_person: year[11]}
-         break
+   years["data"].each do |year| #iterating through data array to find all the info/items under the year the user gives
+      if year[8] == given_year #when the year inside the array matches with the year the user inputs,
+         return {water_consumption_year: year[8], water_consumption_million: year[10], water_consumption_person: year[11]} #return the year, and the two pieces of water consumption info I want to return
+         break #will no longer run when condition above is true 
       end
    end
 end
 
 def run(years)
-   puts "Of what year do you want to find out about the amount of water consumption in NYC (put any year from 1979 - 2016)?"
-   user_year = gets.chomp
+   puts "I've always been interested in finding out about the amount of water consumption in NYC... #introduction from this line to 1189
+   you: Boo, that's very boring! <(@_@)>
+   me: (T_T) ...Too bad, we are lucky enough to have clean water, so let's find out about how much water we consume! Then, we can think about how we can avoid resource depletion!
+   "
+   puts "Of what year do you want to find out about the amount of water consumption in NYC (put any year from 1979 - 2016)?" #the question that will be asked to the user
+   user_year = gets.chomp #stores the user's answer, in this case the year the user wants to find out info about water consumption
    
    begin 
-      water_consumption_info = water_consumption_year_to_info(years, user_year)
-      puts "In #{water_consumption_info[:water_consumption_year]}..."
-      puts "#{water_consumption_info[:water_consumption_million].insert(1, ",")} million gallons of water per day was consumed."
-      puts "#{water_consumption_info[:water_consumption_person]} gallons of water per person per day was consumed."
+      water_consumption_info = water_consumption_year_to_info(years, user_year) #stores info found from dataset from the 1st method
+      puts "In #{water_consumption_info[:water_consumption_year]}..." #returns the year the user wants to know about water consumption info
+      puts "#{water_consumption_info[:water_consumption_million].insert(1, ",")} million gallons of water per day was consumed." #puts a comman between number, so it is easier to read and the whole thing returns the x amount of million gallons of water per day that was consumed for the year the user inputted
+      puts "#{water_consumption_info[:water_consumption_person]} gallons of water per person per day was consumed.
+      you: WOW! <(0o0)> 
+      me: IKR! (^-^) "  # returns x amount of gallons of water per person per day that was consumed for the year the user inputted
    rescue
-      puts "Sorry, water consumption data for that year is not listed!"
+      puts "Sorry, water consumption data for that year is not listed!" #returns this when user puts in a year where there is no recorded data of water consumption for that year
    end
 end
 
-run(water_consumption_data)
-
-
-
-
-
-
-
+run(water_consumption_data) #runs the code above
